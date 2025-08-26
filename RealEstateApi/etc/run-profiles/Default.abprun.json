@@ -1,0 +1,14 @@
+﻿{
+  "applications": {
+    "RealEstateApi": {
+      "type": "dotnet-project",
+      "launchUrl": "https://localhost:44314",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "path": "../../RealEstateApi/RealEstateApi.csproj",
+      "execution": {
+        "order": 0
+      }
+    }
+  }
+}

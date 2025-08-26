@@ -1,0 +1,21 @@
+{
+  "production": true,
+  "application": {
+    "baseUrl":"http://localhost:4200",
+    "name": "RealEstateApi",
+    "logoUrl": ""
+  },
+  "oAuthConfig": {
+    "issuer": "https://localhost:44314",
+    "redirectUri": "https://localhost:44314",
+    "clientId": "RealEstateApi_App",
+    "responseType": "code",
+    "scope": "offline_access openid profile email phone RealEstateApi"
+  },
+  "apis": {
+    "default": {
+      "url": "https://localhost:44314",
+      "rootNamespace": "RealEstateApi"
+    }
+  }
+}
