@@ -33,14 +33,6 @@ public class OwneringModule : AbpModule
             options.AddMaps<OwneringModule>(validate: true);
         });
 
-        //Configure<AbpAspNetCoreMvcOptions>(options =>
-        //{
-        //    options.ConventionalControllers.Create(typeof(OwneringModule).Assembly, settings =>
-        //    {
-        //        settings.RootPath = "ownering";
-        //    });
-        //});
-
         context.Services.AddMongoDbContext<OwneringMongoDbContext>(options =>
         {
             options.AddDefaultRepositories(includeAllEntities: true);

@@ -39,20 +39,5 @@ namespace RealEstate.PropertyCatalog.AppServices
 
             return propertyDtos;
         }
-
-        public async Task CreateAsync(PropertyCreationDto input)
-        {
-            var newProperty = new Property
-            {
-                Name = input.Name,
-                Address = input.Address,
-                Price = input.Price,
-                CodeInternal = input.CodeInternal,
-                Year = input.Year,
-                IdOwner = input.IdOwner,
-            };
-
-            await _propertyRepository.InsertAsync(newProperty);
-        }
     }
 }

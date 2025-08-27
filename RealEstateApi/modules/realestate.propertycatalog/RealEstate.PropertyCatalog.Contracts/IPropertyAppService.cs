@@ -7,7 +7,5 @@ namespace RealEstate.PropertyCatalog
     public interface IPropertyAppService : IApplicationService
     {
         Task<List<PropertyDto>> GetListAsync();
-
-        Task CreateAsync(PropertyCreationDto input);
     }
 }

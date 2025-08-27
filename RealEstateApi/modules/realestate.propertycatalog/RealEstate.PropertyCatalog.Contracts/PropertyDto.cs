@@ -11,13 +11,9 @@ namespace RealEstate.PropertyCatalog
     {
         public string Name { get; set; }
 
-        public string Address { get; set; }
+        public string AddressProperty { get; set; }
 
-        public Decimal Price { get; set; }
-
-        public ulong CodeInternal { get; set; }
-
-        public uint Year { get; set; }
+        public Decimal PriceProperty { get; set; }
 
         public Guid IdOwner { get; set; }
 
