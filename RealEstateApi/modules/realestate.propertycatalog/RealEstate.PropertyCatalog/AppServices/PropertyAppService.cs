@@ -1,4 +1,5 @@
-﻿using RealEstate.PropertyCatalog.Core;
+﻿using RealEstate.Ownering.Integration;
+using RealEstate.PropertyCatalog.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,15 +13,31 @@ namespace RealEstate.PropertyCatalog.AppServices
     {
         private readonly IRepository<Property, Guid> _propertyRepository;
 
-        public PropertyAppService(IRepository<Property, Guid> propertyRepository)
+        private readonly IOwnerIntegrationService _ownerIntegrationService;
+
+        public PropertyAppService(IRepository<Property, Guid> propertyRepository, IOwnerIntegrationService ownerIntegrationService)
         {
             _propertyRepository = propertyRepository;
+            _ownerIntegrationService = ownerIntegrationService;
         }
 
         public async Task<List<PropertyDto>> GetListAsync()
         {
             var properties = await _propertyRepository.GetListAsync();
-            return ObjectMapper.Map<List<Property>, List<PropertyDto>>(properties);
+
+            var ownerIds = properties.Select(p => p.IdOwner).Distinct().ToList();
+            var owners = (await _ownerIntegrationService
+                .GetOwnersByIdsAsync(ownerIds))
+                .ToDictionary(p => p.Id, p => p.Name);
+
+            var propertyDtos = ObjectMapper.Map<List<Property>, List<PropertyDto>>(properties);
+
+            propertyDtos.ForEach(p =>
+            {
+                p.OwnerName = owners[p.IdOwner];
+            });
+
+            return propertyDtos;
         }
 
         public async Task CreateAsync(PropertyCreationDto input)

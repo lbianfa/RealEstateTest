@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using RealEstate.Ownering;
+using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 using Volo.Abp.Application;
@@ -9,6 +10,7 @@ using Volo.Abp.AspNetCore.Mvc;
 namespace RealEstate.PropertyCatalog;
 
 [DependsOn(
+    typeof(OwneringContractsModule),
     typeof(PropertyCatalogContractsModule),
     typeof(AbpDddApplicationModule),
     typeof(AbpAutoMapperModule),

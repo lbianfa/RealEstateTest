@@ -20,5 +20,7 @@ namespace RealEstate.PropertyCatalog
         public uint Year { get; set; }
 
         public Guid IdOwner { get; set; }
+
+        public string OwnerName { get; set; }
     }
 }

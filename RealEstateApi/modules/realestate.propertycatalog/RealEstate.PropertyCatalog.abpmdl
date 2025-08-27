@@ -1,4 +1,4 @@
-﻿{
+{
   "packages": {
     "RealEstate.PropertyCatalog": {
       "path": "RealEstate.PropertyCatalog/RealEstate.PropertyCatalog.abppkg"
@@ -8,6 +8,11 @@
     },
     "RealEstate.PropertyCatalog.Contracts": {
       "path": "RealEstate.PropertyCatalog.Contracts/RealEstate.PropertyCatalog.Contracts.abppkg"
+    }
+  },
+  "imports": {
+    "RealEstate.Ownering": {
+      "path": "../realestate.ownering/RealEstate.Ownering.abpmdl"
     }
   }
 }
