@@ -20,5 +20,18 @@ namespace RealEstate.Ownering.AppServices
             var owners = await _ownerRepository.GetListAsync();
             return ObjectMapper.Map<List<Owner>, List<OwnerDto>>(owners);
         }
+
+        public async Task CreateAsync(OwnerCreationDto input)
+        {
+            var newOwner = new Owner
+            {
+                Name = input.Name,
+                Address = input.Address,
+                Photo = input.Photo,
+                BirthDay = new DateTime()
+            };
+
+            await _ownerRepository.InsertAsync(newOwner);
+        }
     }
 }

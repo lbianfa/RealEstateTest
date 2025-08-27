@@ -14,7 +14,7 @@
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="9.3.1" />
 
     <ProjectReference Include="..\RealEstate.PropertyCatalog.Contracts\RealEstate.PropertyCatalog.Contracts.csproj" />
-    <PackageReference Include="Volo.Abp.MongoDB" Version="9.3.1"/>
+    <PackageReference Include="Volo.Abp.MongoDB" Version="9.3.1" />
   </ItemGroup>
 
 </Project>

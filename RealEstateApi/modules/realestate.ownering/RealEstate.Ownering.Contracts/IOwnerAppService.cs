@@ -7,5 +7,6 @@ namespace RealEstate.Ownering
     public interface IOwnerAppService : IApplicationService
     {
         Task<List<OwnerDto>> GetListAsync();
+        Task CreateAsync(OwnerCreationDto input);
     }
 }
