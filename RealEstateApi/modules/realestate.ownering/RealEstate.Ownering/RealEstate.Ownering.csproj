@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <RootNamespace>RealEstate.Ownering</RootNamespace>
+  </PropertyGroup>
+    
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="9.3.1" />
+    <PackageReference Include="Volo.Abp.Ddd.Application" Version="9.3.1" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="9.3.1" />
+
+    <ProjectReference Include="..\RealEstate.Ownering.Contracts\RealEstate.Ownering.Contracts.csproj" />
+    <PackageReference Include="Volo.Abp.MongoDB" Version="9.3.1" />
+  </ItemGroup>
+
+</Project>

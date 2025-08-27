@@ -1,0 +1,13 @@
+﻿{
+  "packages": {
+    "RealEstate.Ownering": {
+      "path": "RealEstate.Ownering/RealEstate.Ownering.abppkg"
+    },
+    "RealEstate.Ownering.Tests": {
+      "path": "RealEstate.Ownering.Tests/RealEstate.Ownering.Tests.abppkg"
+    },
+    "RealEstate.Ownering.Contracts": {
+      "path": "RealEstate.Ownering.Contracts/RealEstate.Ownering.Contracts.abppkg"
+    }
+  }
+}

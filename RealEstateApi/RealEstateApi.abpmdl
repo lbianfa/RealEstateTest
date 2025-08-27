@@ -28,6 +28,10 @@
     "Volo.Abp.FeatureManagement": {
       "version": "9.3.1",
       "isInstalled": true
+    },
+    "RealEstate.Ownering": {
+      "path": "modules/realestate.ownering/RealEstate.Ownering.abpmdl",
+      "isInstalled": true
     }
   },
   "packages": {

@@ -10,6 +10,10 @@
     "RealEstateApi": {
       "path": "RealEstateApi.abpmdl",
       "folder": "main"
+    },
+    "RealEstate.Ownering": {
+      "path": "modules/realestate.ownering/RealEstate.Ownering.abpmdl",
+      "folder": "modules"
     }
   },
   "runProfiles": {

@@ -1,15 +1,12 @@
 ﻿using MongoDB.Driver;
 using RealEstate.Ownering.Core;
-using RealEstate.Ownering.Data;
 using Volo.Abp.Data;
-using Volo.Abp.DependencyInjection;
 using Volo.Abp.MongoDB;
 
-namespace RealEstateApi.Data;
+namespace RealEstate.Ownering.Data;
 
-[ConnectionStringName("Default")]
-[ReplaceDbContext(typeof(IOwneringMongoDbContext))]
-public class RealEstateApiDbContext : AbpMongoDbContext, IOwneringMongoDbContext
+[ConnectionStringName(OwneringDbProperties.ConnectionStringName)]
+public class OwneringMongoDbContext : AbpMongoDbContext, IOwneringMongoDbContext
 {
     /* Add mongo collections here. Example:
      * public IMongoCollection<Question> Questions => Collection<Question>();
@@ -20,9 +17,6 @@ public class RealEstateApiDbContext : AbpMongoDbContext, IOwneringMongoDbContext
     {
         base.CreateModel(modelBuilder);
 
-        //builder.Entity<YourEntity>(b =>
-        //{
-        //    //...
-        //});
+        modelBuilder.ConfigureOwnering();
     }
 }
