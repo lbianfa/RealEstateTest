@@ -20,5 +20,10 @@ public static class PropertyCatalogMongoDbContextExtensions
         {
             b.CollectionName = "PropertyImages";
         });
+
+        builder.Entity<PropertyTrace>(b =>
+        {
+            b.CollectionName = "PropertyTraces";
+        });
     }
 }

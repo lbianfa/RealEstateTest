@@ -23,6 +23,8 @@ public class RealEstateApiDbContext : AbpMongoDbContext, IOwneringMongoDbContext
 
     public IMongoCollection<PropertyImage> PropertyImages => Collection<PropertyImage>();
 
+    public IMongoCollection<PropertyTrace> PropertyTraces => Collection<PropertyTrace>();
+
     protected override void CreateModel(IMongoModelBuilder modelBuilder)
     {
         base.CreateModel(modelBuilder);

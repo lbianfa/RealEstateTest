@@ -1,0 +1,50 @@
+[
+  {
+    "_id": { "$uuid": "c1c6f97a-8bb0-4f83-b0fb-9c71fd1b4a11" },
+    "DateSale": { "$date": "2021-03-15T00:00:00Z" },
+    "Name": "Initial Sale Greenwood",
+    "Value": { "$numberDecimal": "260000" },
+    "Tax": "5%",
+    "IdProperty": { "$uuid": "11111111-1111-1111-1111-111111111111" }
+  },
+  {
+    "_id": { "$uuid": "4c1d8f5a-65e1-44b2-9157-d1f7e4a49f22" },
+    "DateSale": { "$date": "2022-07-10T00:00:00Z" },
+    "Name": "Transfer Sunset Villa",
+    "Value": { "$numberDecimal": "800000" },
+    "Tax": "7%",
+    "IdProperty": { "$uuid": "22222222-2222-2222-2222-222222222222" }
+  },
+  {
+    "_id": { "$uuid": "7d4a4e22-0bc3-4ec8-9d1e-01d19f35af33" },
+    "DateSale": { "$date": "2020-11-05T00:00:00Z" },
+    "Name": "Central Park Loft Sold",
+    "Value": { "$numberDecimal": "470000" },
+    "Tax": "4%",
+    "IdProperty": { "$uuid": "33333333-3333-3333-3333-333333333333" }
+  },
+  {
+    "_id": { "$uuid": "9f6b36f4-3a6d-4e8f-9f9f-47fbb9a65c44" },
+    "DateSale": { "$date": "2021-09-25T00:00:00Z" },
+    "Name": "Riverside House Transfer",
+    "Value": { "$numberDecimal": "560000" },
+    "Tax": "6%",
+    "IdProperty": { "$uuid": "44444444-4444-4444-4444-444444444444" }
+  },
+  {
+    "_id": { "$uuid": "23c4f789-6d8f-4c99-8c5d-99a3c6f1d555" },
+    "DateSale": { "$date": "2023-01-14T00:00:00Z" },
+    "Name": "Skyline Penthouse Premium Sale",
+    "Value": { "$numberDecimal": "1250000" },
+    "Tax": "10%",
+    "IdProperty": { "$uuid": "55555555-5555-5555-5555-555555555555" }
+  },
+  {
+    "_id": { "$uuid": "56b2a2e1-321f-4d2d-9876-b54c2fd9e666" },
+    "DateSale": { "$date": "2019-05-30T00:00:00Z" },
+    "Name": "Lakeside Cottage Sold",
+    "Value": { "$numberDecimal": "330000" },
+    "Tax": "3%",
+    "IdProperty": { "$uuid": "66666666-6666-6666-6666-666666666666" }
+  }
+]
