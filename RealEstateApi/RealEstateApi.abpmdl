@@ -32,6 +32,10 @@
     "RealEstate.Ownering": {
       "path": "modules/realestate.ownering/RealEstate.Ownering.abpmdl",
       "isInstalled": true
+    },
+    "RealEstate.PropertyCatalog": {
+      "path": "modules/realestate.propertycatalog/RealEstate.PropertyCatalog.abpmdl",
+      "isInstalled": true
     }
   },
   "packages": {

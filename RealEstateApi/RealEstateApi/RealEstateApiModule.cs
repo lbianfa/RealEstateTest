@@ -1,3 +1,4 @@
+using RealEstate.PropertyCatalog;
 using RealEstate.Ownering;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection;
@@ -42,7 +43,9 @@ namespace RealEstateApi;
     typeof(BlobStoringDatabaseMongoDbModule)
 )]
 [DependsOn(
-   typeof(OwneringContractsModule),
+   typeof(PropertyCatalogContractsModule),
+    typeof(PropertyCatalogModule),
+    typeof(OwneringContractsModule),
     typeof(OwneringModule)
 )]
 public class RealEstateApiModule : AbpModule

@@ -11,6 +11,8 @@
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="9.0.5" />
     <ProjectReference Include="../modules/realestate.ownering/RealEstate.Ownering/RealEstate.Ownering.csproj" />
     <ProjectReference Include="../modules/realestate.ownering/RealEstate.Ownering.Contracts/RealEstate.Ownering.Contracts.csproj" />
+    <ProjectReference Include="../modules/realestate.propertycatalog/RealEstate.PropertyCatalog/RealEstate.PropertyCatalog.csproj" />
+    <ProjectReference Include="../modules/realestate.propertycatalog/RealEstate.PropertyCatalog.Contracts/RealEstate.PropertyCatalog.Contracts.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc" Version="9.3.1" />

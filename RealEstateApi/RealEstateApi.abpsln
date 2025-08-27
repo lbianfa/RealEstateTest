@@ -14,6 +14,10 @@
     "RealEstate.Ownering": {
       "path": "modules/realestate.ownering/RealEstate.Ownering.abpmdl",
       "folder": "modules"
+    },
+    "RealEstate.PropertyCatalog": {
+      "path": "modules/realestate.propertycatalog/RealEstate.PropertyCatalog.abpmdl",
+      "folder": "modules"
     }
   },
   "runProfiles": {

@@ -1,0 +1,13 @@
+﻿{
+  "packages": {
+    "RealEstate.PropertyCatalog": {
+      "path": "RealEstate.PropertyCatalog/RealEstate.PropertyCatalog.abppkg"
+    },
+    "RealEstate.PropertyCatalog.Tests": {
+      "path": "RealEstate.PropertyCatalog.Tests/RealEstate.PropertyCatalog.Tests.abppkg"
+    },
+    "RealEstate.PropertyCatalog.Contracts": {
+      "path": "RealEstate.PropertyCatalog.Contracts/RealEstate.PropertyCatalog.Contracts.abppkg"
+    }
+  }
+}
