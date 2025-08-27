@@ -12,6 +12,7 @@ public class PropertyCatalogMongoDbContext : AbpMongoDbContext, IPropertyCatalog
      * public IMongoCollection<Question> Questions => Collection<Question>();
      */
     public IMongoCollection<Property> Properties => Collection<Property>();
+    public IMongoCollection<PropertyImage> PropertyImages => Collection<PropertyImage>();
 
     protected override void CreateModel(IMongoModelBuilder modelBuilder)
     {

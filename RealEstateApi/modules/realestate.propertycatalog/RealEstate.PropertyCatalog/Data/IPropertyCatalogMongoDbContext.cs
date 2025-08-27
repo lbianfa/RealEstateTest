@@ -12,4 +12,6 @@ public interface IPropertyCatalogMongoDbContext : IAbpMongoDbContext
      * IMongoCollection<Question> Questions { get; }
      */
     IMongoCollection<Property> Properties { get; }
+
+    IMongoCollection<PropertyImage> PropertyImages { get; }
 }
