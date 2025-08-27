@@ -22,5 +22,20 @@ namespace RealEstate.PropertyCatalog.AppServices
             var properties = await _propertyRepository.GetListAsync();
             return ObjectMapper.Map<List<Property>, List<PropertyDto>>(properties);
         }
+
+        public async Task CreateAsync(PropertyCreationDto input)
+        {
+            var newProperty = new Property
+            {
+                Name = input.Name,
+                Address = input.Address,
+                Price = input.Price,
+                CodeInternal = input.CodeInternal,
+                Year = input.Year,
+                IdOwner = input.IdOwner,
+            };
+
+            await _propertyRepository.InsertAsync(newProperty);
+        }
     }
 }
