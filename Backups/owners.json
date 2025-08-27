@@ -1,0 +1,23 @@
+[
+  {
+    "_id": { "$uuid": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa" },
+    "Name": "John Smith",
+    "Address": "12 Baker Street",
+    "Photo": "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
+    "BirthDay": { "$date": { "$numberLong": "315532800000" } }
+  },
+  {
+    "_id": { "$uuid": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" },
+    "Name": "Emily Johnson",
+    "Address": "89 Sunset Boulevard",
+    "Photo": "https://images.unsplash.com/photo-1544725176-7c40e5a2c9f9",
+    "BirthDay": { "$date": { "$numberLong": "536457600000" } }
+  },
+  {
+    "_id": { "$uuid": "cccccccc-cccc-cccc-cccc-cccccccccccc" },
+    "Name": "Michael Brown",
+    "Address": "5th Avenue, New York",
+    "Photo": "https://images.unsplash.com/photo-1502685104226-ee32379fefbe",
+    "BirthDay": { "$date": { "$numberLong": "694224000000" } }
+  }
+]

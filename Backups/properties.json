@@ -1,0 +1,137 @@
+[
+  {
+    "_id": { "$uuid": "11111111-1111-1111-1111-111111111111" },
+    "Name": "Greenwood Apartment",
+    "Address": "45 Main Street, Downtown",
+    "Price": { "$numberDecimal": "250000" },
+    "CodeInternal": { "$numberLong": "101" },
+    "Year": 2018,
+    "IdOwner": { "$uuid": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa" }
+  },
+  {
+    "_id": { "$uuid": "22222222-2222-2222-2222-222222222222" },
+    "Name": "Sunset Villa",
+    "Address": "123 Ocean Drive, Miami",
+    "Price": { "$numberDecimal": "750000" },
+    "CodeInternal": { "$numberLong": "102" },
+    "Year": 2020,
+    "IdOwner": { "$uuid": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" }
+  },
+  {
+    "_id": { "$uuid": "33333333-3333-3333-3333-333333333333" },
+    "Name": "Central Park Loft",
+    "Address": "99 5th Avenue, New York",
+    "Price": { "$numberDecimal": "450000" },
+    "CodeInternal": { "$numberLong": "103" },
+    "Year": 2015,
+    "IdOwner": { "$uuid": "cccccccc-cccc-cccc-cccc-cccccccccccc" }
+  },
+  {
+    "_id": { "$uuid": "44444444-4444-4444-4444-444444444444" },
+    "Name": "Riverside House",
+    "Address": "67 River Road, Boston",
+    "Price": { "$numberDecimal": "550000" },
+    "CodeInternal": { "$numberLong": "104" },
+    "Year": 2019,
+    "IdOwner": { "$uuid": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa" }
+  },
+  {
+    "_id": { "$uuid": "55555555-5555-5555-5555-555555555555" },
+    "Name": "Skyline Penthouse",
+    "Address": "800 Tower Street, Chicago",
+    "Price": { "$numberDecimal": "1200000" },
+    "CodeInternal": { "$numberLong": "105" },
+    "Year": 2021,
+    "IdOwner": { "$uuid": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" }
+  },
+  {
+    "_id": { "$uuid": "66666666-6666-6666-6666-666666666666" },
+    "Name": "Lakeside Cottage",
+    "Address": "12 Lakeview Road, Denver",
+    "Price": { "$numberDecimal": "320000" },
+    "CodeInternal": { "$numberLong": "106" },
+    "Year": 2017,
+    "IdOwner": { "$uuid": "cccccccc-cccc-cccc-cccc-cccccccccccc" }
+  },
+  {
+    "_id": { "$uuid": "77777777-7777-7777-7777-777777777777" },
+    "Name": "Hilltop Mansion",
+    "Address": "77 Hilltop Avenue, San Francisco",
+    "Price": { "$numberDecimal": "1850000" },
+    "CodeInternal": { "$numberLong": "107" },
+    "Year": 2022,
+    "IdOwner": { "$uuid": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa" }
+  },
+  {
+    "_id": { "$uuid": "88888888-8888-8888-8888-888888888888" },
+    "Name": "City Center Studio",
+    "Address": "200 Main Square, Dallas",
+    "Price": { "$numberDecimal": "210000" },
+    "CodeInternal": { "$numberLong": "108" },
+    "Year": 2014,
+    "IdOwner": { "$uuid": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" }
+  },
+  {
+    "_id": { "$uuid": "99999999-9999-9999-9999-999999999999" },
+    "Name": "Palm Grove House",
+    "Address": "15 Palm Street, Los Angeles",
+    "Price": { "$numberDecimal": "680000" },
+    "CodeInternal": { "$numberLong": "109" },
+    "Year": 2016,
+    "IdOwner": { "$uuid": "cccccccc-cccc-cccc-cccc-cccccccccccc" }
+  },
+  {
+    "_id": { "$uuid": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaa0000" },
+    "Name": "Meadowview Farm",
+    "Address": "89 Countryside Rd, Austin",
+    "Price": { "$numberDecimal": "430000" },
+    "CodeInternal": { "$numberLong": "110" },
+    "Year": 2013,
+    "IdOwner": { "$uuid": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa" }
+  },
+  {
+    "_id": { "$uuid": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbb0000" },
+    "Name": "Seaside Bungalow",
+    "Address": "321 Beach Road, San Diego",
+    "Price": { "$numberDecimal": "590000" },
+    "CodeInternal": { "$numberLong": "111" },
+    "Year": 2012,
+    "IdOwner": { "$uuid": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" }
+  },
+  {
+    "_id": { "$uuid": "cccccccc-cccc-cccc-cccc-cccccccc0000" },
+    "Name": "Forest Retreat",
+    "Address": "77 Pinewood Lane, Seattle",
+    "Price": { "$numberDecimal": "700000" },
+    "CodeInternal": { "$numberLong": "112" },
+    "Year": 2011,
+    "IdOwner": { "$uuid": "cccccccc-cccc-cccc-cccc-cccccccccccc" }
+  },
+  {
+    "_id": { "$uuid": "dddddddd-dddd-dddd-dddd-dddddddd0000" },
+    "Name": "Downtown Office Space",
+    "Address": "150 Business Ave, Houston",
+    "Price": { "$numberDecimal": "980000" },
+    "CodeInternal": { "$numberLong": "113" },
+    "Year": 2021,
+    "IdOwner": { "$uuid": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa" }
+  },
+  {
+    "_id": { "$uuid": "eeeeeeee-eeee-eeee-eeee-eeeeeeee0000" },
+    "Name": "Harborfront Condo",
+    "Address": "50 Dock Street, Miami",
+    "Price": { "$numberDecimal": "640000" },
+    "CodeInternal": { "$numberLong": "114" },
+    "Year": 2010,
+    "IdOwner": { "$uuid": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" }
+  },
+  {
+    "_id": { "$uuid": "ffffffff-ffff-ffff-ffff-ffffffff0000" },
+    "Name": "Mountain View Cabin",
+    "Address": "9 Alpine Rd, Denver",
+    "Price": { "$numberDecimal": "350000" },
+    "CodeInternal": { "$numberLong": "115" },
+    "Year": 2009,
+    "IdOwner": { "$uuid": "cccccccc-cccc-cccc-cccc-cccccccccccc" }
+  }
+]
