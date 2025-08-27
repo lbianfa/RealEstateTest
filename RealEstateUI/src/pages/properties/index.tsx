@@ -1,6 +1,15 @@
+import { PropertiesHeader } from "../../features/properties/properties-header";
+import { PropertiesList } from "../../widgets/properties-list";
+
 export const PropertiesPage = () => {
-    return <h1 className="text-3xl font-bold underline">
-        Hello world!
-        <i className="bi bi-alarm" style={{ fontSize: "2rem", color: "cornflowerblue" }}></i>
-    </h1>
+  return (
+    <div
+      className="relative flex size-full min-h-screen flex-col bg-primary dark group/design-root overflow-hidden"
+      style={{ fontFamily: 'Manrope, "Noto Sans", sans-serif' }}
+    >
+        <PropertiesHeader />
+
+        <PropertiesList />
+    </div>
+  )
 }
