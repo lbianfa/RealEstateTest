@@ -18,5 +18,7 @@ namespace RealEstate.PropertyCatalog
         public Guid IdOwner { get; set; }
 
         public string OwnerName { get; set; }
+
+        public string Picture { get; set; }
     }
 }

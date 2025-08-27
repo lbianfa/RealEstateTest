@@ -13,11 +13,14 @@ namespace RealEstate.PropertyCatalog.AppServices
     {
         private readonly IRepository<Property, Guid> _propertyRepository;
 
+        private readonly IRepository<PropertyImage, Guid> _propertyImageRepository;
+
         private readonly IOwnerIntegrationService _ownerIntegrationService;
 
-        public PropertyAppService(IRepository<Property, Guid> propertyRepository, IOwnerIntegrationService ownerIntegrationService)
+        public PropertyAppService(IRepository<Property, Guid> propertyRepository, IRepository<PropertyImage, Guid> propertyImageRepository, IOwnerIntegrationService ownerIntegrationService)
         {
             _propertyRepository = propertyRepository;
+            _propertyImageRepository = propertyImageRepository;
             _ownerIntegrationService = ownerIntegrationService;
         }
 
@@ -32,9 +35,13 @@ namespace RealEstate.PropertyCatalog.AppServices
 
             var propertyDtos = ObjectMapper.Map<List<Property>, List<PropertyDto>>(properties);
 
-            propertyDtos.ForEach(p =>
+            propertyDtos.ForEach(async p =>
             {
+
+                var propertyImage = await _propertyImageRepository.FirstOrDefaultAsync(pi => pi.IdProperty == p.Id && pi.Enabled == true);
+
                 p.OwnerName = owners[p.IdOwner];
+                p.Picture = propertyImage?.File;
             });
 
             return propertyDtos;
