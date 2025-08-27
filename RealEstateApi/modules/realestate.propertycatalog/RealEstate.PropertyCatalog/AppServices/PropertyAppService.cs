@@ -3,8 +3,8 @@ using RealEstate.PropertyCatalog.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Volo.Abp.Application.Dtos;
 using Volo.Abp.Domain.Repositories;
 
 namespace RealEstate.PropertyCatalog.AppServices
@@ -24,27 +24,81 @@ namespace RealEstate.PropertyCatalog.AppServices
             _ownerIntegrationService = ownerIntegrationService;
         }
 
-        public async Task<List<PropertyDto>> GetListAsync()
+        public async Task<PagedResultDto<PropertyDto>> GetListAsync(CustomPagedAndSortedResultRequestDto input)
         {
-            var properties = await _propertyRepository.GetListAsync();
+            var queryable = await _propertyRepository.GetQueryableAsync();
 
-            var ownerIds = properties.Select(p => p.IdOwner).Distinct().ToList();
+            if (!string.IsNullOrWhiteSpace(input.Name))
+            {
+                queryable = queryable.Where(p => p.Name.ToLower().Contains(input.Name.ToLower()));
+            }
+
+            if (input.MinPrice.HasValue)
+            {
+                queryable = queryable.Where(p => p.Price >= input.MinPrice.Value);
+            }
+
+            if (input.MaxPrice.HasValue)
+            {
+                queryable = queryable.Where(p => p.Price <= input.MaxPrice.Value);
+            }
+
+            if (!string.IsNullOrWhiteSpace(input.Address))
+            {
+                queryable = queryable.Where(p => p.Address.ToLower().Contains(input.Address.ToLower()));
+            }
+
+            // Sorting
+            if (!string.IsNullOrWhiteSpace(input.Sorting))
+            {
+                // Simple sorting by known fields. Extend as needed.
+                var sorting = input.Sorting.Trim();
+                var descending = sorting.StartsWith("-");
+                var sortField = descending ? sorting.Substring(1) : sorting;
+
+                queryable = sortField switch
+                {
+                    nameof(Property.Name) => (descending ? queryable.OrderByDescending(p => p.Name) : queryable.OrderBy(p => p.Name)),
+                    nameof(Property.Price) => (descending ? queryable.OrderByDescending(p => p.Price) : queryable.OrderBy(p => p.Price)),
+                    nameof(Property.Year) => (descending ? queryable.OrderByDescending(p => p.Year) : queryable.OrderBy(p => p.Year)),
+                    nameof(Property.CodeInternal) => (descending ? queryable.OrderByDescending(p => p.CodeInternal) : queryable.OrderBy(p => p.CodeInternal)),
+                    nameof(Property.Address) => (descending ? queryable.OrderByDescending(p => p.Address) : queryable.OrderBy(p => p.Address)),
+                    _ => queryable.OrderBy(p => p.Name)
+                };
+            }
+            else
+            {
+                queryable = queryable.OrderBy(p => p.Name);
+            }
+
+            var totalCount = queryable.Count();
+
+            var items = queryable
+                .Skip(input.SkipCount)
+                .Take(input.MaxResultCount)
+                .ToList();
+
+            var ownerIds = items.Select(p => p.IdOwner).Distinct().ToList();
             var owners = (await _ownerIntegrationService
                 .GetOwnersByIdsAsync(ownerIds))
                 .ToDictionary(p => p.Id, p => p.Name);
 
-            var propertyDtos = ObjectMapper.Map<List<Property>, List<PropertyDto>>(properties);
+            var propertyDtos = ObjectMapper.Map<List<Property>, List<PropertyDto>>(items);
 
-            propertyDtos.ForEach(async p =>
+            // Fetch images in batch to minimize queries
+            var propertyIds = items.Select(p => p.Id).ToList();
+            var images = await _propertyImageRepository.GetListAsync(pi => propertyIds.Contains(pi.IdProperty) && pi.Enabled == true);
+            var imageByProperty = images
+                .GroupBy(i => i.IdProperty)
+                .ToDictionary(g => g.Key, g => g.FirstOrDefault());
+
+            foreach (var dto in propertyDtos)
             {
+                dto.OwnerName = owners.TryGetValue(dto.IdOwner, out var ownerName) ? ownerName ?? string.Empty : string.Empty;
+                dto.Picture = imageByProperty.TryGetValue(dto.Id, out var img) ? (img?.File ?? string.Empty) : string.Empty;
+            }
 
-                var propertyImage = await _propertyImageRepository.FirstOrDefaultAsync(pi => pi.IdProperty == p.Id && pi.Enabled == true);
-
-                p.OwnerName = owners[p.IdOwner];
-                p.Picture = propertyImage?.File;
-            });
-
-            return propertyDtos;
+            return new PagedResultDto<PropertyDto>(totalCount, propertyDtos);
         }
     }
 }
