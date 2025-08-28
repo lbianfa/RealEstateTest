@@ -14,9 +14,9 @@ export const PropertiesCard = ({ property }: { property: Property }) => {
                 <p className="text-accent-light text-sm font-normal leading-normal">{property.addressProperty}</p>
             </div>
             <button
-                className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 flex-row-reverse bg-secondary text-neutral text-sm font-medium leading-normal w-fit"
+                className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-8 px-4 flex-row-reverse bg-secondary-light text-neutral text-sm font-medium leading-normal w-fit"
             >
-                <span className="truncate">${property.priceProperty}</span>
+                <span className="truncate">{property.priceProperty.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</span>
             </button>
             </div>
             <div

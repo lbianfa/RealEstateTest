@@ -1,21 +1,34 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PropertiesHeader } from "../../features/properties/properties-header";
 import { PropertiesList } from "../../widgets/properties-list";
 import { useInfiniteProperties } from "./query";
 import debounce from "lodash.debounce";
+import { ToastContainer, toast } from "react-toastify";
 
 export const PropertiesPage = () => {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [minPrice, setMinPrice] = useState<number | undefined>(undefined);
   const [maxPrice, setMaxPrice] = useState<number | undefined>(undefined);
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } = useInfiniteProperties(5, {
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading, isError, error } = useInfiniteProperties(5, {
     name,
     address,
     minPrice,
     maxPrice,
   });
   const items = data?.pages.flatMap((p) => p.items) ?? [];
+
+  useEffect(() => {
+    if (isError) {
+      toast.error("Error to load properties", { toastId: "properties-error" });
+    }
+  }, [isError, error]);
+
+  useEffect(() => {
+    if (!isLoading && !isError && items.length === 0) {
+      toast.warn("No properties found", { toastId: "properties-empty" });
+    }
+  }, [isLoading, isError, items.length]);
 
   const debouncedSetNameRef = useRef<ReturnType<typeof debounce> | null>(null);
   if (!debouncedSetNameRef.current) {
@@ -70,6 +83,7 @@ export const PropertiesPage = () => {
             isLoading={isLoading}
           />
         </div>
+        <ToastContainer position="bottom-center" autoClose={3000} hideProgressBar theme="dark" />
     </div>
   )
 }
