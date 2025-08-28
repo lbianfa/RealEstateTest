@@ -33,9 +33,11 @@ export const PropertiesList = ({
 
     return (
         <div className="flex-1 overflow-y-auto pt-[160px] pb-4">
-            {properties.map((property) => (
-                <PropertiesCard key={property.id} property={property} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {properties.map((property) => (
+                    <PropertiesCard key={property.id} property={property} />
+                ))}
+            </div>
             <div ref={sentinelRef} />
             {isFetchingNextPage && (
                 <div className="flex items-center justify-center py-4 text-accent-light text-sm">Loading more…</div>

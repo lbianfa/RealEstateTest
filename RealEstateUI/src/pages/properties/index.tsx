@@ -61,13 +61,14 @@ export const PropertiesPage = () => {
           onSearchByAddress={onSearchByAddress}
           onPriceChange={onPriceChange}
         />
-
-        <PropertiesList
-          properties={items}
-          onLoadMore={() => fetchNextPage()}
-          hasNextPage={!!hasNextPage}
-          isFetchingNextPage={isFetchingNextPage}
-        />
+        <div className="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+          <PropertiesList
+            properties={items}
+            onLoadMore={() => fetchNextPage()}
+            hasNextPage={!!hasNextPage}
+            isFetchingNextPage={isFetchingNextPage}
+          />
+        </div>
     </div>
   )
 }

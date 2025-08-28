@@ -2,19 +2,19 @@
 
 @theme {
   /* Primary colors */
-  --color-primary: #162013;
-  --color-primary-dark: #162013;
-  --color-primary-light: #2e4328;
-  
-  /* Secondary colors */
-  --color-secondary: #2e4328;
-  --color-secondary-dark: #21301c;
-  --color-secondary-light: #426039;
-  
+  --color-primary: #131720;
+  --color-primary-dark: #0f141d;
+  --color-primary-light: #1a2030;
+
+  /* Secondary colors (cards/controls) */
+  --color-secondary: #273044;
+  --color-secondary-dark: #1c2231;
+  --color-secondary-light: #384561;
+
   /* Accent colors */
-  --color-accent: #54d22d;
-  --color-accent-light: #a2c398;
-  
+  --color-accent: #234faf;
+  --color-accent-light: #97a5c3;
+
   /* Neutral colors */
   --color-neutral: #ffffff;
   --color-neutral-dark: #000000;
