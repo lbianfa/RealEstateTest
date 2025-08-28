@@ -25,6 +25,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RealEstate.PropertyCatalog\RealEstate.PropertyCatalog.csproj" />
+    <ProjectReference Include="..\..\realestate.ownering\RealEstate.Ownering.Contracts\RealEstate.Ownering.Contracts.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ApplicationServices\" />

@@ -11,6 +11,9 @@ using Volo.Abp.Uow;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Data;
 using RealEstate.PropertyCatalog.Tests.MongoDB;
+using RealEstate.Ownering.Integrations;
+using NSubstitute;
+using Volo.Abp.MongoDB;
 
 namespace RealEstate.PropertyCatalog.Tests;
 
@@ -19,9 +22,10 @@ namespace RealEstate.PropertyCatalog.Tests;
     typeof(AbpAspNetCoreMvcModule),
     typeof(AbpEventBusModule),
     typeof(AbpCachingModule),
-    typeof(AbpDistributedLockingAbstractionsModule)
+    typeof(AbpDistributedLockingAbstractionsModule),
+    typeof(AbpMongoDbModule),
+    typeof(PropertyCatalogModule)
 )]
-[AdditionalAssembly(typeof(PropertyCatalogModule))]
 public class PropertyCatalogTestsModule : AbpModule
 {
     
@@ -32,6 +36,9 @@ public class PropertyCatalogTestsModule : AbpModule
         ConfigureAuthorization(context);
         ConfigureDatabase(context);
         ConfigureDatabaseTransactions(context);
+
+        // Register a substitute for external owner integration service to avoid external calls
+        context.Services.AddSingleton<IOwnerIntegrationService>(sp => Substitute.For<IOwnerIntegrationService>());
     }
 
     public override void OnApplicationInitialization(ApplicationInitializationContext context)
@@ -63,7 +70,7 @@ public class PropertyCatalogTestsModule : AbpModule
 
         context.Services.AddMongoDbContext<PropertyCatalogMongoDbContext>(options =>
         {
-            options.AddDefaultRepositories();
+            options.AddDefaultRepositories(includeAllEntities: true);
         });
     }
     
