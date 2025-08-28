@@ -15,12 +15,29 @@ export function useProperties(query?: GetPropertiesQuery) {
   });
 }
 
-export function useInfiniteProperties(maxResultCount: number = 20) {
+export function useInfiniteProperties(
+  maxResultCount: number = 20,
+  filters?: Pick<GetPropertiesQuery, "name" | "address" | "minPrice" | "maxPrice">
+) {
   return useInfiniteQuery({
     initialPageParam: 0,
-    queryKey: ["properties", "infinite", maxResultCount],
+    queryKey: [
+      "properties",
+      maxResultCount,
+      filters?.name ?? null,
+      filters?.address ?? null,
+      filters?.minPrice ?? null,
+      filters?.maxPrice ?? null,
+    ],
     queryFn: ({ pageParam }) =>
-      getAllProperties({ maxResultCount, skipCount: pageParam }),
+      getAllProperties({
+        maxResultCount,
+        skipCount: pageParam,
+        name: filters?.name,
+        address: filters?.address,
+        minPrice: filters?.minPrice,
+        maxPrice: filters?.maxPrice,
+      }),
     getNextPageParam: (lastPage, allPages) => {
       const loadedCount = allPages.reduce((sum, page) => sum + page.items.length, 0);
       return loadedCount < lastPage.totalCount ? loadedCount : undefined;

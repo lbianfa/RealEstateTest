@@ -14,6 +14,8 @@ export interface GetPropertiesQuery {
     skipCount?: number | string;
     name?: string;
     address?: string;
+    minPrice?: number | string;
+    maxPrice?: number | string;
 }
 
 export const getAllProperties = async (query?: GetPropertiesQuery) : Promise<PaginatedResponse<Property>> => {
@@ -23,6 +25,8 @@ export const getAllProperties = async (query?: GetPropertiesQuery) : Promise<Pag
             SkipCount: query?.skipCount,
             Name: query?.name,
             Address: query?.address,
+            MinPrice: query?.minPrice,
+            MaxPrice: query?.maxPrice,
         },
     });
     return {
