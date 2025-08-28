@@ -1,4 +1,4 @@
-﻿using RealEstate.Ownering.Integration;
+﻿using RealEstate.Ownering.Integrations;
 using RealEstate.PropertyCatalog.Core;
 using System;
 using System.Collections.Generic;

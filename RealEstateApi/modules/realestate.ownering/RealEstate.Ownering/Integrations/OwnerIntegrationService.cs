@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories;
 
-namespace RealEstate.Ownering.Integration
+namespace RealEstate.Ownering.Integrations
 {
     public class OwnerIntegrationService : OwneringAppService, IOwnerIntegrationService
     {

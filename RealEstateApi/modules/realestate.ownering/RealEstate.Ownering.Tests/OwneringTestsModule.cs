@@ -11,6 +11,8 @@ using Volo.Abp.Uow;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Data;
 using RealEstate.Ownering.Tests.MongoDB;
+using Volo.Abp.MongoDB;
+using RealEstate.Ownering;
 
 namespace RealEstate.Ownering.Tests;
 
@@ -19,9 +21,10 @@ namespace RealEstate.Ownering.Tests;
     typeof(AbpAspNetCoreMvcModule),
     typeof(AbpEventBusModule),
     typeof(AbpCachingModule),
-    typeof(AbpDistributedLockingAbstractionsModule)
+    typeof(AbpDistributedLockingAbstractionsModule),
+    typeof(AbpMongoDbModule),
+    typeof(OwneringModule)
 )]
-[AdditionalAssembly(typeof(OwneringModule))]
 public class OwneringTestsModule : AbpModule
 {
     
@@ -63,7 +66,7 @@ public class OwneringTestsModule : AbpModule
 
         context.Services.AddMongoDbContext<OwneringMongoDbContext>(options =>
         {
-            options.AddDefaultRepositories();
+            options.AddDefaultRepositories(includeAllEntities: true);
         });
     }
     

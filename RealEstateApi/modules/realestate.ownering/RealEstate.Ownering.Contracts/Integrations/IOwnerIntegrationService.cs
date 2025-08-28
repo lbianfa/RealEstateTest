@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Services;
 
-namespace RealEstate.Ownering.Integration
+namespace RealEstate.Ownering.Integrations
 {
     public interface IOwnerIntegrationService : IApplicationService
     {
