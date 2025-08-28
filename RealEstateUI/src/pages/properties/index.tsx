@@ -9,7 +9,7 @@ export const PropertiesPage = () => {
   const [address, setAddress] = useState("");
   const [minPrice, setMinPrice] = useState<number | undefined>(undefined);
   const [maxPrice, setMaxPrice] = useState<number | undefined>(undefined);
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteProperties(5, {
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } = useInfiniteProperties(5, {
     name,
     address,
     minPrice,
@@ -53,7 +53,7 @@ export const PropertiesPage = () => {
 
   return (
     <div
-      className="relative flex size-full min-h-screen flex-col bg-primary dark group/design-root overflow-hidden"
+      className="relative flex size-full min-h-screen flex-col bg-primary dark overflow-hidden"
       style={{ fontFamily: 'Manrope, "Noto Sans", sans-serif' }}
     >
         <PropertiesHeader
@@ -67,6 +67,7 @@ export const PropertiesPage = () => {
             onLoadMore={() => fetchNextPage()}
             hasNextPage={!!hasNextPage}
             isFetchingNextPage={isFetchingNextPage}
+            isLoading={isLoading}
           />
         </div>
     </div>
