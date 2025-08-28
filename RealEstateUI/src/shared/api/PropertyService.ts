@@ -9,8 +9,22 @@ interface PaginatedResponse<T> {
     items: T[];
 }
 
-export const getAllProperties = async () : Promise<PaginatedResponse<Property>> => {
-    const { data } = await http.get<PaginatedResponse<PropertyDto>>(endpoints.properties);
+export interface GetPropertiesQuery {
+    maxResultCount?: number | string;
+    skipCount?: number | string;
+    name?: string;
+    address?: string;
+}
+
+export const getAllProperties = async (query?: GetPropertiesQuery) : Promise<PaginatedResponse<Property>> => {
+    const { data } = await http.get<PaginatedResponse<PropertyDto>>(endpoints.properties, {
+        params: {
+            MaxResultCount: query?.maxResultCount,
+            SkipCount: query?.skipCount,
+            Name: query?.name,
+            Address: query?.address,
+        },
+    });
     return {
         totalCount: data.totalCount,
         items: mapPropertiesDtoToModel(data.items),

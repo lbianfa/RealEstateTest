@@ -1,9 +1,10 @@
 import { PropertiesHeader } from "../../features/properties/properties-header";
 import { PropertiesList } from "../../widgets/properties-list";
-import { useProperties } from "./query";
+import { useInfiniteProperties } from "./query";
 
 export const PropertiesPage = () => {
-  const { data: properties } = useProperties();
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteProperties(5);
+  const items = data?.pages.flatMap((p) => p.items) ?? [];
 
   return (
     <div
@@ -12,7 +13,12 @@ export const PropertiesPage = () => {
     >
         <PropertiesHeader />
 
-        <PropertiesList properties={properties.items} />
+        <PropertiesList
+          properties={items}
+          onLoadMore={() => fetchNextPage()}
+          hasNextPage={!!hasNextPage}
+          isFetchingNextPage={isFetchingNextPage}
+        />
     </div>
   )
 }
