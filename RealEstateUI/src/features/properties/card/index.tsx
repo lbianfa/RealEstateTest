@@ -7,7 +7,7 @@ export const PropertiesCard = ({ property }: { property: Property }) => {
     const [isImageError, setIsImageError] = useState(false);
 
     return (
-        <NavLink to={`/properties/${property.id}`} className="flex items-stretch justify-between gap-4 rounded-xl p-4 bg-secondary shadow-sm">
+        <NavLink to={`/properties/${property.id}`} state={{ property }} className="flex items-stretch justify-between gap-4 rounded-xl p-4 bg-secondary shadow-sm">
             <div className="flex flex-[2_2_0px] flex-col gap-4">
             <div className="flex flex-col gap-1">
                 <p className="text-accent-light text-sm font-normal leading-normal">{property.ownerName}</p>

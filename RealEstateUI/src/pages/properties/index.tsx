@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router";
 import { PropertiesHeader } from "../../features/properties/header";
 import { PropertiesList } from "../../widgets/properties/list";
 import { useInfiniteProperties } from "./query";
@@ -6,6 +7,7 @@ import debounce from "lodash.debounce";
 import { ToastContainer, toast } from "react-toastify";
 
 export const PropertiesPage = () => {
+  const state = useLocation().state;
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [minPrice, setMinPrice] = useState<number | undefined>(undefined);
@@ -21,8 +23,12 @@ export const PropertiesPage = () => {
   useEffect(() => {
     if (isError) {
       toast.error("Error to load properties", { toastId: "properties-error" });
+      return;
     }
-  }, [isError, error]);
+    if (state?.errorLoadDetails) {
+      toast.error("Error to load details from property " + state?.propertyIdError, { toastId: "properties-error-details" });
+    }
+  }, [isError, error, state]);
 
   useEffect(() => {
     if (!isLoading && !isError && items.length === 0) {
