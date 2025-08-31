@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 
-namespace RealEstate.PropertyCatalog
+namespace RealEstate.PropertyCatalog.AppServices
 {
     public interface IPropertyAppService : IApplicationService
     {

@@ -17,5 +17,7 @@ public class PropertyCatalogAutoMapperProfile : Profile
             .Ignore(p => p.Picture)
             .ForMember(p => p.AddressProperty, opt => opt.MapFrom(p => p.Address))
             .ForMember(p => p.PriceProperty, opt => opt.MapFrom(p => p.Price));
+
+        CreateMap<PropertyTrace, PropertyTraceDto>();
     }
 }
