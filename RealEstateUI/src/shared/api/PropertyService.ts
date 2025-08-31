@@ -2,7 +2,7 @@ import { http } from "./http";
 import { endpoints } from "./endpoints";
 import type { PropertyDto } from "../../entities/property/dto";
 import type { Property } from "../../entities/property/model";
-import { mapPropertiesDtoToModel } from "../../entities/property/mappers";
+import { mapPropertiesDtoToModel, mapPropertyDtoToModel } from "../../entities/property/mappers";
 
 interface PaginatedResponse<T> {
     totalCount: number;
@@ -19,7 +19,7 @@ export interface GetPropertiesQuery {
 }
 
 export const getAllProperties = async (query?: GetPropertiesQuery) : Promise<PaginatedResponse<Property>> => {
-    const { data } = await http.get<PaginatedResponse<PropertyDto>>(endpoints.properties, {
+    const { data } = await http.get<PaginatedResponse<PropertyDto>>(endpoints.property, {
         params: {
             MaxResultCount: query?.maxResultCount,
             SkipCount: query?.skipCount,
@@ -33,4 +33,9 @@ export const getAllProperties = async (query?: GetPropertiesQuery) : Promise<Pag
         totalCount: data.totalCount,
         items: mapPropertiesDtoToModel(data.items),
     };
+}
+
+export const getPropertyById = async (id: string) : Promise<Property> => {
+    const { data } = await http.get<PropertyDto>(`${endpoints.property}/${id}`);
+    return mapPropertyDtoToModel(data);
 }

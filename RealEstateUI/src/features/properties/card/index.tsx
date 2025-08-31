@@ -1,12 +1,13 @@
 import { useState } from "react";
 import type { Property } from "../../../entities/property/model";
+import { NavLink } from "react-router";
 
 export const PropertiesCard = ({ property }: { property: Property }) => {
     const [isImageLoaded, setIsImageLoaded] = useState(false);
     const [isImageError, setIsImageError] = useState(false);
 
     return (
-        <div className="flex items-stretch justify-between gap-4 rounded-xl p-4 bg-secondary shadow-sm">
+        <NavLink to={`/properties/${property.id}`} className="flex items-stretch justify-between gap-4 rounded-xl p-4 bg-secondary shadow-sm">
             <div className="flex flex-[2_2_0px] flex-col gap-4">
             <div className="flex flex-col gap-1">
                 <p className="text-accent-light text-sm font-normal leading-normal">{property.ownerName}</p>
@@ -38,6 +39,6 @@ export const PropertiesCard = ({ property }: { property: Property }) => {
                     </div>
                 )}
             </div>
-        </div>
+        </NavLink>
     )
 }

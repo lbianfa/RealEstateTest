@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@layer base {
+  body {
+    font-family: 'Manrope', 'Noto Sans', sans-serif;
+  }
+}
+
 @theme {
   /* Primary colors */
   --color-primary: #131720;

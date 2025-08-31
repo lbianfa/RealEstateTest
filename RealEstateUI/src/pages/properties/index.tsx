@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { PropertiesHeader } from "../../features/properties/properties-header";
-import { PropertiesList } from "../../widgets/properties-list";
+import { PropertiesHeader } from "../../features/properties/header";
+import { PropertiesList } from "../../widgets/properties/list";
 import { useInfiniteProperties } from "./query";
 import debounce from "lodash.debounce";
 import { ToastContainer, toast } from "react-toastify";
@@ -67,14 +67,13 @@ export const PropertiesPage = () => {
   return (
     <div
       className="relative flex size-full min-h-screen flex-col bg-primary dark overflow-hidden"
-      style={{ fontFamily: 'Manrope, "Noto Sans", sans-serif' }}
     >
         <PropertiesHeader
           onSearchByName={onSearchByName}
           onSearchByAddress={onSearchByAddress}
           onPriceChange={onPriceChange}
         />
-        <div className="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 pt-[160px]">
           <PropertiesList
             properties={items}
             onLoadMore={() => fetchNextPage()}

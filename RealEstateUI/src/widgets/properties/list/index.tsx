@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
-import { PropertiesCard } from "../../features/properties/properties-card";
-import type { Property } from "../../entities/property/model";
+import { PropertiesCard } from "../../../features/properties/card";
+import type { Property } from "../../../entities/property/model";
 import Lottie from "lottie-react";
-import emptyAnimation from "../../assets/empty.json";
-import searchingAnimation from "../../assets/searching.json";
+import emptyAnimation from "../../../assets/empty.json";
+import searchingAnimation from "../../../assets/searching.json";
 
 export const PropertiesList = ({
     properties,
@@ -37,7 +37,7 @@ export const PropertiesList = ({
     }, [onLoadMore, hasNextPage, isFetchingNextPage]);
 
     return (
-        <div className="flex-1 overflow-y-auto pt-[160px] pb-4">
+        <div className="flex-1 overflow-y-auto pb-4">
             {properties.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {properties.map((property) => (
