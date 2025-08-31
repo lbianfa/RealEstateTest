@@ -19,8 +19,8 @@ export const PropertyDetailsOwner = ({ ownerName, ownerPhoto }: { ownerName?: st
     }, [ownerPhoto])
 
     return (
-        <div className={`${ownerName ? '': 'animate-pulse'}`}>
-            <h2 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5 mt-5">Owner</h2>
+        <div className={`my-5 ${ownerName ? '': 'animate-pulse'}`}>
+            <h3 className="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Owner</h3>
             <div className="flex items-center gap-4 px-4 min-h-[72px] py-2">
                 {isImageLoaded && (
                     <div
