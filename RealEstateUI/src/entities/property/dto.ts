@@ -5,5 +5,6 @@ export interface PropertyDto {
     priceProperty: number;
     idOwner: string;
     ownerName: string;
+    ownerPhoto: string;
     picture: string;
 }

@@ -4,5 +4,6 @@ export interface Property {
     addressProperty: string;
     priceProperty: number;
     ownerName: string;
+    ownerPhoto: string;
     picture: string;
 }

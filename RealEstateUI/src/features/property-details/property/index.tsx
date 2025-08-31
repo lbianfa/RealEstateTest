@@ -1,7 +1,7 @@
 import { useState } from "react"
 import type { Property } from "../../../entities/property/model"
 
-export const PropertyDetails = ({ property }: { property: Property | null }) => {
+export const PropertyData = ({ property }: { property: Property | null }) => {
     const [isImageLoaded, setIsImageLoaded] = useState(false)
     const [isImageError, setIsImageError] = useState(false)
 

@@ -8,6 +8,7 @@ export const mapPropertyDtoToModel = (dto: PropertyDto): Property => {
     addressProperty: dto.addressProperty,
     priceProperty: Number(dto.priceProperty),
     ownerName: dto.ownerName,
+    ownerPhoto: dto.ownerPhoto,
     picture: dto.picture,
   };
 };
