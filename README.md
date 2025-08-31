@@ -51,9 +51,9 @@ Technical test project including:
 # Navigate to RealEstateApi/
 cd ./RealEstateApi
 # Run migrations
-dotnet run --migrate-database
+dotnet run --migrate-database --project RealEstateApi
 # Start the project
-dotnet run
+dotnet run --project RealEstateApi
 # Swagger: https://localhost:44314/swagger
 ```
 
@@ -72,8 +72,6 @@ pnpm install
 pnpm dev
 # http://localhost:3000
 ```
-
-Note: Image loading may be slow because high-quality Unsplash images are used, which are not optimized for the properties list view.
 
 ## Unit Tests
 
@@ -100,4 +98,4 @@ pnpm test
 
 ![Show](ScreenGif.gif)
 
-
+![Show](ScreenGif2.gif)

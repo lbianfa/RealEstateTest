@@ -52,9 +52,9 @@ Proyecto de prueba técnica que incluye:
 # Navegar a RealEstateApi/
 cd ./RealEstateApi
 # Ejecutar migraciones
-dotnet run --migrate-database
+dotnet run --migrate-database --project RealEstateApi
 # Levantar el proyecto
-dotnet run
+dotnet run --project RealEstateApi
 # Swagger: https://localhost:44314/swagger
 ```
 
@@ -73,8 +73,6 @@ pnpm install
 pnpm dev
 # http://localhost:3000
 ```
-
-Nota: La carga de imágenes puede ser lenta debido a que se utilizan imágenes de Unsplash de alta calidad, las cuales no están optimizadas para la visualización en la lista de propiedades.
 
 ## Pruebas Unitarias
 
@@ -100,3 +98,5 @@ pnpm test
 ## ScreenGif
 
 ![Show](ScreenGif.gif)
+
+![Show](ScreenGif2.gif)
