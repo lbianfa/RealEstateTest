@@ -13,6 +13,7 @@ public class PropertyCatalogAutoMapperProfile : Profile
          * into multiple profile classes for a better organization. */
         CreateMap<Property, PropertyDto>()
             .Ignore(p => p.OwnerName)
+            .Ignore(p => p.OwnerPhoto)
             .Ignore(p => p.Picture)
             .ForMember(p => p.AddressProperty, opt => opt.MapFrom(p => p.Address))
             .ForMember(p => p.PriceProperty, opt => opt.MapFrom(p => p.Price));

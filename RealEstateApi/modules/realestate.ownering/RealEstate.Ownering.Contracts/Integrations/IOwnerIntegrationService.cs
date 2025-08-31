@@ -10,5 +10,6 @@ namespace RealEstate.Ownering.Integrations
     public interface IOwnerIntegrationService : IApplicationService
     {
         Task<List<OwnerDto>> GetOwnersByIdsAsync(List<Guid> ids);
+        Task<OwnerDto> GetOwnerByIdAsync(Guid id);
     }
 }

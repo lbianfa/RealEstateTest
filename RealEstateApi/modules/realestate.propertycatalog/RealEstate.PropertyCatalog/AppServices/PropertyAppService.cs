@@ -81,7 +81,7 @@ namespace RealEstate.PropertyCatalog.AppServices
             var ownerIds = items.Select(p => p.IdOwner).Distinct().ToList();
             var owners = (await _ownerIntegrationService
                 .GetOwnersByIdsAsync(ownerIds))
-                .ToDictionary(p => p.Id, p => p.Name);
+                .ToDictionary(p => p.Id, p => p);
 
             var propertyDtos = ObjectMapper.Map<List<Property>, List<PropertyDto>>(items);
 
@@ -94,11 +94,32 @@ namespace RealEstate.PropertyCatalog.AppServices
 
             foreach (var dto in propertyDtos)
             {
-                dto.OwnerName = owners.TryGetValue(dto.IdOwner, out var ownerName) ? ownerName ?? string.Empty : string.Empty;
+                if (owners.TryGetValue(dto.IdOwner, out var owner))
+                {
+                    dto.OwnerName = owner?.Name ?? string.Empty;
+                    dto.OwnerPhoto = owner?.Photo ?? string.Empty;
+                }
+                else
+                {
+                    dto.OwnerName = string.Empty;
+                    dto.OwnerPhoto = string.Empty;
+                }
                 dto.Picture = imageByProperty.TryGetValue(dto.Id, out var img) ? (img?.File ?? string.Empty) : string.Empty;
             }
 
             return new PagedResultDto<PropertyDto>(totalCount, propertyDtos);
+        }
+
+        public async Task<PropertyDto> GetAsync(Guid id)
+        {
+            var property = await _propertyRepository.GetAsync(id);
+            var owner = await _ownerIntegrationService.GetOwnerByIdAsync(property.IdOwner);
+            var images = await _propertyImageRepository.FirstOrDefaultAsync(pi => pi.IdProperty == id && pi.Enabled == true);
+            var propertyDto = ObjectMapper.Map<Property, PropertyDto>(property);
+            propertyDto.OwnerName = owner.Name;
+            propertyDto.OwnerPhoto = owner.Photo;
+            propertyDto.Picture = images?.File ?? string.Empty;
+            return propertyDto;
         }
     }
 }

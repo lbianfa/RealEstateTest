@@ -19,6 +19,8 @@ namespace RealEstate.PropertyCatalog
 
         public string OwnerName { get; set; }
 
+        public string OwnerPhoto { get; set; }
+
         public string Picture { get; set; }
     }
 }

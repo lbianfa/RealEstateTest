@@ -21,5 +21,12 @@ namespace RealEstate.Ownering.Integrations
 
             return ObjectMapper.Map<List<Owner>, List<OwnerDto>>(owners);
         }
+
+        public async Task<OwnerDto> GetOwnerByIdAsync(Guid id)
+        {
+            var owner = await _ownerRepository.GetAsync(id);
+
+            return ObjectMapper.Map<Owner, OwnerDto>(owner);
+        }
     }
 }
